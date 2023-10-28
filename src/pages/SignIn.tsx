@@ -1,10 +1,11 @@
 //import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { auth } from '../firebase';
 //import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Link } from 'react-router-dom';
 
-const Login = () => {
+const SignIn = () => {
+  const navigate = useNavigate();
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
@@ -12,6 +13,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email.value, password.value)
       .then((user) => {
         console.log('ログイン成功=', user.user.uid);
+        navigate('/');
       })
       .catch((error) => {
         console.error(error);
@@ -35,14 +37,14 @@ const Login = () => {
           <button>ログイン</button>
         </div>
         <hr />
-        <div>
+        {/* <div>
           <Link to={'/signup'}>
             <button>Register</button>
           </Link>
-        </div>
+        </div> */}
       </form>
     </div>
   );
 };
 
-export default Login;
+export default SignIn;
