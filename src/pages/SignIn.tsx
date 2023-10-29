@@ -1,9 +1,11 @@
-//import { useState } from 'react';
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithRedirect,
+} from 'firebase/auth';
 import { useNavigate } from 'react-router';
-import { auth } from '../firebase';
-//import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
+import { auth } from '../firebase';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -12,13 +14,21 @@ const SignIn = () => {
 
     const { email, password } = event.target.elements;
     signInWithEmailAndPassword(auth, email.value, password.value)
-      .then((user) => {
-        console.log('ログイン成功=', user.user.uid);
+      .then(() => {
         navigate('/');
       })
       .catch((error) => {
         console.error(error);
       });
+  };
+  const googleSubmit = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      signInWithRedirect(auth, provider);
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -44,6 +54,9 @@ const SignIn = () => {
           </Link>
         </div>
       </form>
+      <div>
+        <button onClick={googleSubmit}>サインイン for Google</button>
+      </div>
     </div>
   );
 };
