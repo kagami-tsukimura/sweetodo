@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
 
 const SignUp = () => {
@@ -30,7 +31,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <h1>ユーザ登録</h1>
+      <h1>サインアップ</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>メールアドレス</label>
@@ -52,7 +53,12 @@ const SignUp = () => {
         </div>
         <hr />
         <div>
-          <button>登録</button>
+          <button>サインアップ</button>
+        </div>
+        <div>
+          <Link to={'/signin'}>
+            <button>サインイン</button>
+          </Link>
         </div>
       </form>
     </div>

@@ -1,5 +1,11 @@
+import Logout from './Logout';
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Logout />
+    </div>
+  );
 };
 
 export default Home;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { auth } from '../firebase';
 //import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const SignIn = () => {
 
   return (
     <div>
-      <h1>ログイン</h1>
+      <h1>サインイン</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>メールアドレス</label>
@@ -34,14 +35,14 @@ const SignIn = () => {
         </div>
         <hr />
         <div>
-          <button>ログイン</button>
+          <button>サインイン</button>
         </div>
         <hr />
-        {/* <div>
+        <div>
           <Link to={'/signup'}>
-            <button>Register</button>
+            <button>サインアップ</button>
           </Link>
-        </div> */}
+        </div>
       </form>
     </div>
   );
