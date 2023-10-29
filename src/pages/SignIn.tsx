@@ -1,7 +1,7 @@
 import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
-  signInWithRedirect,
+  signInWithPopup,
 } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -21,10 +21,10 @@ const SignIn = () => {
         console.error(error);
       });
   };
-  const googleSubmit = async () => {
+  const googleSubmit = () => {
     const provider = new GoogleAuthProvider();
     try {
-      signInWithRedirect(auth, provider);
+      signInWithPopup(auth, provider);
       navigate('/');
     } catch (error) {
       console.log(error);
