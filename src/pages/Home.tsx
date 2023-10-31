@@ -3,7 +3,7 @@ import Logout from './Logout';
 const Home = () => {
   return (
     <div>
-      <h1>ToDo</h1>
+      <button className='button bg-red-200'>ボタン</button>
       <Logout />
     </div>
   );
