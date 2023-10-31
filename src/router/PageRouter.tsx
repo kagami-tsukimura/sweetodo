@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { UserType } from '../App';
+import NotFound from '../pages/404';
 import Home from '../pages/Home';
 import Logout from '../pages/Logout';
 import SignIn from '../pages/SignIn';
@@ -17,6 +18,7 @@ const PageRouter = ({ user }: PageRouterProps) => {
         <Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/logout' element={<Logout />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
