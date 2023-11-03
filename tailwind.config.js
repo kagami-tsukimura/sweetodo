@@ -6,6 +6,21 @@ module.exports = {
   plugins: [],
   theme: {
     extend: {
+      animation: {
+        'fade-in-bottom': 'fade-in-bottom 0.6s ease-out   both',
+      },
+      keyframes: {
+        'fade-in-bottom': {
+          '0%': {
+            transform: 'translateY(50px)',
+            opacity: '0',
+          },
+          to: {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+        },
+      },
       colors: {
         primary: {
           50: '#eff6ff',
