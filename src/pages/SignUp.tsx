@@ -30,7 +30,7 @@ const SignUp = () => {
             SweeToDo
             <img
               className='w-8 h-8 ml-2'
-              src='https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3292052/816db7fc-2284-cccc-e64e-54b96f8001a8.png'
+              src='https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3292052/ee0d3a4c-a04d-5905-ea87-11986aebb0b6.png'
               alt='logo'
             />
           </Link>
