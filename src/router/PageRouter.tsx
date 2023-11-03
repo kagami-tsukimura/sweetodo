@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { UserType } from '../App';
+import DarkModeButton from '../components/DarkModeButton';
 import NotFound from '../pages/404';
 import Home from '../pages/Home';
 import Logout from '../pages/Logout';
@@ -12,15 +13,18 @@ type PageRouterProps = {
 
 const PageRouter = ({ user }: PageRouterProps) => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={user ? <Home /> : <SignIn />} />
-        <Route path='/signin' element={<SignIn />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/logout' element={<Logout />} />
-        <Route path='/*' element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="className='bg-gray-50 dark:bg-gray-900">
+      <DarkModeButton />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={user ? <Home /> : <SignIn />} />
+          <Route path='/signin' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/logout' element={<Logout />} />
+          <Route path='/*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 };
 
