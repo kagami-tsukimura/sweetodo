@@ -1,12 +1,7 @@
-import Logout from './Logout';
+import Header from '../components/Header';
 
 const Home = () => {
-  return (
-    <div>
-      <button className='button bg-red-200'>ボタン</button>
-      <Logout />
-    </div>
-  );
+  return <Header />;
 };
 
 export default Home;
