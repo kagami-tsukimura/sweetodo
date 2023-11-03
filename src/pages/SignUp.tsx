@@ -1,6 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import GoogleSignin from '../components/GoogleSignin';
 import { auth } from '../firebase';
 import { FadeInBottom } from '../utils/FadeInBottom';
 
@@ -38,13 +37,13 @@ const SignUp = () => {
             </Link>
             <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
               <div className='p-6 space-y-4 md:space-y-6 sm:p-8'>
-                <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
-                  Create an account
-                </h1>
                 <form
-                  className='space-y-4 md:space-y-6'
                   onSubmit={handleSubmit}
+                  className='space-y-4 md:space-y-6'
                 >
+                  <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
+                    Create an account
+                  </h1>
                   <div>
                     <label
                       htmlFor='email'
@@ -81,17 +80,16 @@ const SignUp = () => {
                   >
                     Create an account
                   </button>
-                  <GoogleSignin />
-                  <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
-                    Already have an account?{' '}
-                    <Link
-                      to={'/signin'}
-                      className='font-medium text-primary-600 hover:underline dark:text-primary-500'
-                    >
-                      Login here
-                    </Link>
-                  </p>
                 </form>
+                <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
+                  Already have an account?{' '}
+                  <Link
+                    to={'/signin'}
+                    className='font-medium text-primary-600 hover:underline dark:text-primary-500'
+                  >
+                    Login here
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
