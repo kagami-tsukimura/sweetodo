@@ -1,12 +1,9 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import GoogleSignin from '../components/GoogleSignin';
 import { auth } from '../firebase';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
@@ -17,7 +14,7 @@ const SignUp = () => {
         console.log(userCredential);
       })
       .catch((error) => {
-        alert(error.message);
+        alert("I can't Sign up😢\nCould you check it for email or password?");
         console.error(error);
       });
   };
@@ -79,6 +76,7 @@ const SignUp = () => {
                 >
                   Create an account
                 </button>
+                <GoogleSignin />
                 <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
                   Already have an account?{' '}
                   <Link
